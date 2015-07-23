@@ -1,0 +1,52 @@
+Metadata-Version: 1.1
+Name: BlastNFilter
+Version: 0.1.0
+Summary: Blast N Filter reads in weekly PDB prerelease files, removes entries bound to undesirable ligands, and BLASTS the remaining sequences. Those PDB structures sufficiently similar to the input sequence are returned, sorted by resolution, and stored in an csv file for later processing
+Home-page: https://github.com/rvswift/BlastNFilter
+Author: Rob Swift
+Author-email: robvswift@gmail.com
+License: BSD
+Description: ===============================
+        "blast n filter"
+        ===============================
+        
+        .. image:: https://img.shields.io/travis/rvswift/BlastNFilter.svg
+                :target: https://travis-ci.org/rvswift/BlastNFilter
+        
+        .. image:: https://img.shields.io/pypi/v/BlastNFilter.svg
+                :target: https://pypi.python.org/pypi/BlastNFilter
+        
+        
+        "Blast N Filter reads in weekly PDB prerelease files, removes entries bound to undesirable ligands, and BLASTS the remaining sequences. Those PDB structures sufficiently similar to the input sequence are returned, sorted by resolution, and stored in an csv file for later processing"
+        
+        * Free software: BSD license
+        * Documentation: https://BlastNFilter.readthedocs.org.
+        
+        Features
+        --------
+        
+        * TODO
+        
+        
+        
+        
+        History
+        -------
+        
+        0.1.0 ("2015-07-23")
+        ---------------------
+        
+        * First release on PyPI.
+        
+Keywords: BlastNFilter
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
