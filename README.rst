@@ -35,20 +35,6 @@ Pip install is coming, but in the meantime:
 
 Usage
 -----
-
-Run
-
-.. code:: bash
-
-  celpprunner.py -h
-  usage: celpprunner.py [-h] [--blastdir BLASTDIR] [--email EMAIL] --stage
-                      {blast,dock,score} --blastnfilter BLASTNFILTER
-                      [--log {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
-                      [--smtp SMTP] [--smtpport SMTPPORT] [--version]
-                      celppdir
-
-Usage
------
 Usage information is displayed by running the scripts without arguments
 
 .. code:: bash
