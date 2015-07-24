@@ -35,6 +35,15 @@ Pip install is coming, but in the meantime:
 
 Usage
 -----
+
+Run
+
+.. code:: bash
+
+  celpprunner.py -h
+
+Usage
+-----
 Usage information is displayed by running the scripts without arguments
 
 .. code:: bash
