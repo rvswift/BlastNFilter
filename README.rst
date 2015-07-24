@@ -39,12 +39,11 @@ Usage information is displayed by running the scripts without arguments
 
 .. code:: bash
 
-        blastnfilter.py
+  blastnfilter.py
 
-        No arguments specified
+  No arguments specified
 
-        usage: blastnfilter --nonpolymertsv --sequencetsv --pdbblastdb --outdir
-
+  usage: blastnfilter --nonpolymertsv --sequencetsv --pdbblastdb --outdir
 
 Notes
 -----
