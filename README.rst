@@ -1,5 +1,5 @@
 ===============================
-"Drug Design Data Resource BlastNFilter "
+Drug Design Data Resource BlastNFilter
 ===============================
 
 .. image:: https://img.shields.io/travis/rvswift/BlastNFilter.svg
