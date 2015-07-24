@@ -2,6 +2,7 @@ __author__ = 'robswift'
 
 import os
 import gzip
+import socket
 from BlastNFilter.PreRelease import filtering_sets as filtering_sets
 from SequenceBase import Base
 from collections import defaultdict
@@ -13,7 +14,11 @@ class Test(Base):
     """
 
     """
-    pdb_dir = '/data/pdb'
+    if socket.gethostname() == 'Robs-MacBook-Pro.local':
+        pdb_dir = '/Users/robswift/Documents/Work/D3R/devel/data/pdb'
+    else:
+        pdb_dir = '/data/pdb'
+
     pdb_dict = defaultdict(list)
 
     @staticmethod

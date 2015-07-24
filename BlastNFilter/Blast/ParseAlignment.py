@@ -58,7 +58,7 @@ def filter_blast_result(alignment, record):
         return False
 
 
-def blast_the_targets(target_list, pdb_db, fasta, monomers=True):
+def blast_the_targets(target_list, pdb_db, fasta, out_dir, monomers=True):
     """
     Runs a blast search using the target sequence as a query. If monomers is True, then only monomers, or targets with
     one chain, will be used. If monomers is True, if no blast results that satisfy the monomer condition exist, then
@@ -73,7 +73,7 @@ def blast_the_targets(target_list, pdb_db, fasta, monomers=True):
         target_list = filter_by_chain(target_list, 1)
         if target_list:
             for target in target_list:
-                target.run_blast(pdb_db)
+                target.run_blast(pdb_db, out_dir)
                 target.filter_by_experiment('X-RAY DIFFRACTION')
                 target.test_list = filter_by_chain(target.test_list, 1)
             target_list = clear_empty_targets(target_list)

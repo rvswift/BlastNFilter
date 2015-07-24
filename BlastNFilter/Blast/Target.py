@@ -13,26 +13,22 @@ import ParseAlignment
 from SequenceBase import Base
 from Test import Test
 
-#import pdb
-
-#pdb.set_trace()
 
 class Target(Base):
     """
 
     """
-    #pdb_files = Tools.Utilities.Run.PdbFiles()
-    #pdb_db = pdb_files.get_pdb_db()
-    #pdb_db = '/Users/robswift/Documents/Work/D3R/devel/data/celpp/2015/dataset.week.25/stage.1.pdbblastdb/pdb_db'
+
+
     def __init__(self):
         super(Base, self).__init__()                # inherit superclass constructor
         self.sequences = defaultdict(list)          # {'pdbid' : [SeqRecord, ..., SeqRecord]}
         self.test_list = [ ]                        # {'pdbid' : [test objects]}
-        self.ligands = { }                 # {'resname': ('InChI', 'label'}. label is 'do_not_call' or 'dock'
+        self.ligands = { }                          # {'resname': ('InChI', 'label'}. label is 'do_not_call' or 'dock'
 
     def set_ligand(self, resname, inchi, label):
         """
-        Add a ligand object to the ligand list (add a check to ensure it's a ligand class being passed)
+
         :param ligand:
         :return:
         """
@@ -41,9 +37,6 @@ class Target(Base):
     def set_sequence(self, pdb_id, chain_id, seq):
         id = pdb_id + '_' + chain_id
         self.sequences[pdb_id].append(SeqRecord(Seq(seq, generic_protein), id = id))
-
-    #def get_number_of_chains(self):
-        #len(self.sequences[self])
 
     def get_ligand_names(self):
         """
@@ -55,7 +48,7 @@ class Target(Base):
     def get_sequences(self):
         return self.sequences
 
-    def run_blast(self, pdb_db):
+    def run_blast(self, pdb_db, out_dir):
         """
         Run BLASTP
         :return:
@@ -63,7 +56,7 @@ class Target(Base):
         # this will only work for the simplest monomer case....add functionality for oligomer
         for key in self.sequences.keys():
             # write a fasta file
-            fasta_file = key + '.fasta' # want this to be pdb_id.chain_id.fasta add error checking
+            fasta_file = os.path.join(os.path.abspath(out_dir), key + '.fasta')
             SeqIO.write(self.sequences[key], fasta_file, "fasta")
             #FastaIO.write_fasta(fasta_file, self.sequences[key])
 
@@ -110,16 +103,19 @@ class Target(Base):
 
     def filter_by_experiment(self, method_type):
         """
-        Removes test structures from test_list that aren't of method_type
-        :param method_type:
-        :return:
+        Removes test structures from test_list that weren't determined by method, method_type.
+        :param method_type: (string) an experimental structure determination method used to solve wwpdb structures.
+        Method types could include:
+            'X-RAY DIFFRACTION', 'SOLUTION NMR', 'SOLID-STATE NMR', 'ELECTRON MICROSCOPY', 'ELECTRON CRYSTALLOGRAPHY',
+            'FIBER DIFFRACTION', 'NEUTRON DIFFRACTION', or 'SOLUTION SCATTERING'.
+        For the purpose of the CELPP cross-docking exercises, only structures determined by X-RAY DIFFRACTION are used.
         """
         del_test_indices = []
         assigned_test_structures = [x.get_pdb_id() for x in self.test_list]
 
         # identify test objects to delete
         for test in self.test_list:
-            if test.get_expt_method() != method_type:
+            if test.get_expt_method() != method_type.upper():
                 del_test_indices.append(assigned_test_structures.index(test.get_pdb_id()))
 
         # remove identified test objects
