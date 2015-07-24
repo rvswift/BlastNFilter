@@ -35,5 +35,20 @@ Pip install is coming, but in the meantime:
 
 Usage
 -----
+Usage information is displayed by running the scripts without arguments
 
+.. code:: bash
+
+        blastnfilter.py
+
+        No arguments specified
+
+        usage: blastnfilter --nonpolymertsv --sequencetsv --pdbblastdb --outdir
+
+
+Notes
+-----
+blastnfilter.py runs BLAST using the BioPython libraries, which require FASTA file to be written to disk.
+To avoid potential permissions issues, the FASTA files are written to outdir. FASTA files are deleted
+once they have been used. However, if blastnfilter.py terminates prematurely, the FASTA files will need to be cleaned.
 
