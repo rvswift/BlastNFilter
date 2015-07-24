@@ -18,3 +18,19 @@ Features
 --------
 
 * TODO
+
+Installation
+------------
+
+Pip install is coming, but in the meantime:
+
+.. code:: bash
+
+  git clone https://github.com/nbcrrolls/BlastNFilter
+  cd BlastNFilter
+  make install
+
+Usage
+-----
+
+

@@ -25,7 +25,7 @@ test_requirements = [
 setup(
     name='BlastNFilter',
     version='0.1.0',
-    description="Blast N Filter reads in weekly PDB prerelease files, removes entries bound to undesirable ligands, and BLASTS the remaining sequences. Those PDB structures sufficiently similar to the input sequence are returned, sorted by resolution, and stored in an csv file for later processing",
+    description="Blast N filter processes pre-releases from wwpdb for weekly cross-docking exercises.",
     long_description=readme + '\n\n' + history,
     author="Rob Swift",
     author_email='robvswift@gmail.com',

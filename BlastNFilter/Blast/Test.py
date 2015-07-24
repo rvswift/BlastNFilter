@@ -13,7 +13,7 @@ class Test(Base):
     """
 
     """
-    pdb_dir = '/Users/robswift/Documents/Work/D3R/devel/data/pdb'
+    pdb_dir = '/data/pdb'
     pdb_dict = defaultdict(list)
 
     @staticmethod
